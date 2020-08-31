@@ -13,7 +13,7 @@ import vlc, time, cec, os, subprocess
 
 #Kaukosäätimen CEC-komennot:
 NAPIT = {1: "YLÖS", 0: "OK", 2: "ALAS", 3: "VASEN", 4: "OIKEA", 69: "STOP", 70: "PAUSE", 72: "REV", 73: "FWD", 68: "PLAY"}
-FILEPATH="/opt/pycectv" #Hakemisto jossa konffi, piconit ja skriptit #/home/pi/pycectv
+FILEPATH="/opt/pycectv" #Hakemisto jossa konffi, piconit ja skriptit
 
 class VideoWindow(QtCore.QThread, QtCore.QObject): #------------------------------------------- VIDEOSOITIN -------------------------------
     def __init__(self, parent=None):

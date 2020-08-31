@@ -1,4 +1,4 @@
 #!/bin/bash
 #poistaa ETV:n m3u8:sta kaikki paitsi heikoimman laadun ja palauttaa paikallisen m3u8-tiedoston pycectv:lle
-wget 'https://sb.err.ee/live/etv2.m3u8' -O - 2>/dev/null|cat -|sed -e '3,4d;7,8d'>/home/pi/pycectv/tmp.m3u8
-echo "file:///home/pi/pycectv/tmp.m3u8"
+wget 'https://sb.err.ee/live/etv2.m3u8' -O - 2>/dev/null|cat -|sed -e '3,4d;7,8d'>/tmp/tmp.m3u8
+echo "file:///tmp/tmp.m3u8"

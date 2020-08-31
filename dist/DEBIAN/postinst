@@ -1,5 +1,5 @@
 #!/bin/bash
-if (whiptail --title "Autostart program?" --yesno "Autostart bootup?" 10 60) then
+if (whiptail --title "Autostart program?" --yesno "Käynnistä automaattisesti?" 10 60) then
     systemctl enable pycectv
 else
     systemctl disable pycectv
