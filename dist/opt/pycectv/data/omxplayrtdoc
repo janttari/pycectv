@@ -1,0 +1,7 @@
+#!/bin/bash
+if [[ "$1" == "--start" ]]; then #striimin käynnistäessä:
+    #omxplayer -o hdmi 'https://rt-doc-gd.secure2.footprint.net/1101.m3u8'
+    omxplayer -o hdmi 'https://rt-doc-gd.secure2.footprint.net/1101_2500Kb.m3u8'
+elif [[ "$1" == "--stop" ]]; then #striimin lopetettaessa (stop painiketta painettu):
+    killall -9 omxplayer.bin
+fi

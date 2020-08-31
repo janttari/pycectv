@@ -1,0 +1,13 @@
+[Unit]
+Description=pycectv sercice
+After=multi-user.target
+
+[Service]
+PartOf=graphical-session.target
+Environment="DISPLAY=:0"
+Environment="XAUTHORITY=/home/pi/.Xauthority"
+User=pi
+ExecStart=/opt/pycectv/bin/pycectv.py &
+
+[Install]
+WantedBy=graphical.target

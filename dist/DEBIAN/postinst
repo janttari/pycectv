@@ -1,0 +1,11 @@
+#!/bin/bash
+if (whiptail --title "Autostart program?" --yesno "Autostart bootup?" 10 60) then
+    systemctl enable pycectv
+else
+    systemctl disable pycectv
+fi
+
+#----------------------------------------------------------------------------------
+#user=$(whiptail --nocancel --title "Run as" --inputbox "Run as user:" 8 78 "pi" 3>&1 1>&2 2>&3)
+
+#----------------------------------------------------------------------------------
