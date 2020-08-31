@@ -6,6 +6,12 @@
 pycectv on yksinkertainen television kaukosäätimellä (HDMI-CEC) ohjattava IPTV-toistin Raspberry Pi:lle.
   
 Asennus:
+  
+    sudo apt install -y python3-pip python3-pyqt5 jq vlc
+    sudo pip3 install cec python-vlc youtube-dl
+    wget https://github.com/janttari/pycectv/raw/main/pycectv2.deb
+    sudo dpkg -i pycectv2.deb
+  
 
   
 

@@ -1,10 +1,6 @@
 #!/usr/bin/env python3
-#pycectv signaali-pohjainen  
 #
 # Yksinkertainen IPTV toistin Raspberrylle. Ohjataan TV:n kaukosäätimellä (HDMI-CEC)
-#
-# sudo apt install -y python3-pyqt5
-# sudo pip3 install cec
 #
 
 from PyQt5 import QtCore, QtGui, QtWidgets
