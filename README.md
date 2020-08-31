@@ -7,44 +7,32 @@ pycectv on yksinkertainen television kaukosäätimellä (HDMI-CEC) ohjattava IPT
   
 Asennus:
 
-    sudo apt install -y python3-pyqt5 python3-pip git jq
-    sudo pip3 install youtube-dl python-vlc cec
-    cd ~
-    git clone https://github.com/janttari/pycectv.git
-    cd pycectv
-    ./asenna
-  
-Päivitys:
-  
-    cd ~/pycectv
-    git pull
-    ./asenna
   
 
-konfiguroi kanavat tiedostoon **/home/pi/pycectv/kanavat.conf**  
+konfiguroi kanavat tiedostoon **/opt/pycectv/kanavat.conf**  
   
-Kuvakkeet ja skriptit tulee olla hakemistossa **/home/pi/pycectv/**  
+Kuvakkeet ja skriptit tulee olla hakemistossa **/opt/pycectv/data/**  
 
 Ohjelman käynnistys:
   
-    sudo systemctl start pycectv.service
+    sudo systemctl start pycectv
 
 Ohjelman sammutus:  
   
-    sudo systemctl stop pycectv.service
+    sudo systemctl stop pycectv
 
 
 Automaattinen käynnistys päälle:  
   
-    sudo systemctl enable pycectv.service
+    sudo systemctl enable pycectv
 
 Automaattinen käynnistys pois päältä:
   
-    sudo systemctl disable pycectv.service
+    sudo systemctl disable pycectv
 
 
 -------
-**/home/pi/pycectv/kanavat.conf**
+**/opt/pycectv/kanavat.conf**
 
  nimi|kuva|tyyppi|parametrit  
   
@@ -66,7 +54,6 @@ Automaattinen käynnistys pois päältä:
 -------
   
 TODO:  
--varsinainen asennus /opt ja vain konffit on /home/pi/cectv
   
 
   
