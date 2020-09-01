@@ -11,7 +11,7 @@ pycectv on yksinkertainen television kaukosäätimellä (HDMI-CEC) ohjattava IPT
     sudo apt install -y lxqt lightdm # (jos Raspberry Pi OS lite pohjana ilman graafista työpöytää)  
     
     #Työpöytä automaattisesti käynnistyväksi:
-    sudo rm /etc/systemd/system/default.target && sudo ln -s /lib/systemd/system/graphical.target /etc/systemd/system/default.target
+    sudo rm /etc/systemd/system/default.target ; sudo ln -s /lib/systemd/system/graphical.target /etc/systemd/system/default.target
     
     #Jos "A stop job is running for..." rebootissa:
     sudo sed -i 's/^#DefaultTimeoutStopSec=.*/DefaultTimeoutStopSec=10s/' /etc/systemd/system.conf
