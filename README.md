@@ -5,10 +5,10 @@
 
 pycectv on yksinkertainen television kaukosäätimellä (HDMI-CEC) ohjattava IPTV-toistin Raspberry Pi:lle.
   
-### Jos imagena on lite ilman työpöytää, asenna ensin työpöytä:
+### Jos imagena on Raspberry Pi OS lite ilman työpöytää, asenna ensin työpöytä:
 
     sudo apt update
-    sudo apt install -y lxqt lightdm # (jos Raspberry Pi OS lite pohjana ilman graafista työpöytää)  
+    sudo apt install -y lxqt lightdm
     
     #Työpöytä automaattisesti käynnistyväksi:
     sudo raspi-config # --> Boot Options --> Desktop / CLI --> Desktop Autologin Desktop GUI, automatically logged in as 'pi' user
