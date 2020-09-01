@@ -4,10 +4,10 @@ After=multi-user.target
 
 [Service]
 PartOf=graphical-session.target
-Environment="DISPLAY=:0"
-Environment="XAUTHORITY=/home/pi/.Xauthority"
+#Environment="DISPLAY=:0"
+#Environment="XAUTHORITY=/home/pi/.Xauthority"
 User=pi
-ExecStart=/opt/pycectv/bin/pycectv.py &
+ExecStart=/opt/pycectv/bin/startpycectv
 
 [Install]
 WantedBy=graphical.target
