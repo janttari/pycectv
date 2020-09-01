@@ -13,12 +13,6 @@ pycectv on yksinkertainen television kaukosäätimellä (HDMI-CEC) ohjattava IPT
     #Työpöytä automaattisesti käynnistyväksi:
     sudo rm /etc/systemd/system/default.target && sudo ln -s /lib/systemd/system/graphical.target /etc/systemd/system/default.target
     
-    #Näytönsäästäjä pois käytöstä:
-    mkdir -p ~/.config/autostart
-    echo "[Desktop entry]" >~/.config/autostart/disable-screensaver.desktop
-    echo "Type=Application" >>~/.config/autostart/disable-screensaver.desktop
-    echo "Exec=xscreensaver-command -deactivate &" >>~/.config/autostart/disable-screensaver.desktop
-    
     #Jos "A stop job is running for..." rebootissa:
     sudo sed -i 's/^#DefaultTimeoutStopSec=.*/DefaultTimeoutStopSec=10s/' /etc/systemd/system.conf
     
