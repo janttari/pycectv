@@ -16,6 +16,8 @@ pycectv on yksinkertainen television kaukosäätimellä (HDMI-CEC) ohjattava IPT
     #Jos "A stop job is running for..." rebootissa:
     sudo sed -i 's/^#DefaultTimeoutStopSec=.*/DefaultTimeoutStopSec=10s/' /etc/systemd/system.conf
     
+    sudo reboot 
+    
     #Paneelin piilotus:
     sed -i 's/^hidable=.*/hidable=true/' ~/.config/lxqt/panel.conf
     
