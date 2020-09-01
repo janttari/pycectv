@@ -2,7 +2,6 @@
 export DISPLAY=:0
 Environment="DISPLAY=:0"
 Environment="XAUTHORITY=/home/pi/.Xauthority"
-xscreensaver-command -deactivate & 2>/dev/null
+sleep 60 && xscreensaver-command -exit &
 unclutter -idle 1 &
-#export DISPLAY=:0;
 /opt/pycectv/bin/pycectv.py
