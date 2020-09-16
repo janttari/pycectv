@@ -1,0 +1,118 @@
+#EXTM3U
+#EXTVLCOPT--http-reconnect=true
+#EXTINF:-1,: 20200912 2057 - Sub - Varasto 2.ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20200912%202057%20-%20Sub%20-%20Varasto%202.ts
+#EXTINF:-1,: 20200906 2102 - Animal Planet HD - Crikey! It's The Irwins_ Bindi's Wedding.ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20200906%202102%20-%20Animal%20Planet%20HD%20-%20Crikey%21%20It%27s%20The%20Irwins_%20Bindi%27s%20Wedding.ts
+#EXTINF:-1,: 20200812 1812 - HISTORY HD - The Curse Of Oak Island.ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20200812%201812%20-%20HISTORY%20HD%20-%20The%20Curse%20Of%20Oak%20Island.ts
+#EXTINF:-1,: 20200711 1701 - 4Fun Gold Hits - Przeboje dla dzieci.ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20200711%201701%20-%204Fun%20Gold%20Hits%20-%20Przeboje%20dla%20dzieci.ts
+#EXTINF:-1,: 20200707 2257 - Discovery (F) - Alaska_ Viimeinen rintama.ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20200707%202257%20-%20Discovery%20%28F%29%20-%20Alaska_%20Viimeinen%20rintama.ts
+#EXTINF:-1,: 20200623 2157 - HISTORY HD - The Curse Of Oak Island.ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20200623%202157%20-%20HISTORY%20HD%20-%20The%20Curse%20Of%20Oak%20Island.ts
+#EXTINF:-1,: 20200621 2057 - Nelonen - Kummeli kultakuume.ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20200621%202057%20-%20Nelonen%20-%20Kummeli%20kultakuume.ts
+#EXTINF:-1,: 20200419 1727 - Yle TV2 HD - Hevi reissu.ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20200419%201727%20-%20Yle%20TV2%20HD%20-%20Hevi%20reissu.ts
+#EXTINF:-1,: 20200317 2157 - HISTORY HD - The Curse Of Oak Island.ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20200317%202157%20-%20HISTORY%20HD%20-%20The%20Curse%20Of%20Oak%20Island.ts
+#EXTINF:-1,: 20200317 1457 - Discovery (F) - Yukonin miehet.ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20200317%201457%20-%20Discovery%20%28F%29%20-%20Yukonin%20miehet.ts
+#EXTINF:-1,: 20200312 1200 - TV 2 News HD - Nyhederne.ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20200312%201200%20-%20TV%202%20News%20HD%20-%20Nyhederne.ts
+#EXTINF:-1,: 20200312 1104 - TV 2 Nyhetskanalen HD - Nyhetene.ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20200312%201104%20-%20TV%202%20Nyhetskanalen%20HD%20-%20Nyhetene.ts
+#EXTINF:-1,: 20191113 2057 - Hero - Elokuva_ Troija (16).ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20191113%202057%20-%20Hero%20-%20Elokuva_%20Troija%20%2816%29.ts
+#EXTINF:-1,: 20191019 2318 - Yle Teema & Fem HD - 1984.ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20191019%202318%20-%20Yle%20Teema%20%26%20Fem%20HD%20-%201984.ts
+#EXTINF:-1,: 20190905 2057 - Nelonen HD - Elokuva_ Captain America_ The First Avenger (12).ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20190905%202057%20-%20Nelonen%20HD%20-%20Elokuva_%20Captain%20America_%20The%20First%20Avenger%20%2812%29.ts
+#EXTINF:-1,: 20190711 2057 - Kutonen - Elokuva_ Van Helsing (12).ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20190711%202057%20-%20Kutonen%20-%20Elokuva_%20Van%20Helsing%20%2812%29.ts
+#EXTINF:-1,: 20190531 2101 - TV5 - Elokuva_ 2012 (12).ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20190531%202101%20-%20TV5%20-%20Elokuva_%202012%20%2812%29.ts
+#EXTINF:-1,: 20190526 1848 - Estradi 2020 - Estradi 2020.ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20190526%201848%20-%20Estradi%202020%20-%20Estradi%202020.ts
+#EXTINF:-1,: 20190514 0807 - SVT1 Norrbotten - Morgonstudion.ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20190514%200807%20-%20SVT1%20Norrbotten%20-%20Morgonstudion.ts
+#EXTINF:-1,: 20190504 2232 - MTV3 - Elokuva_ Johan Falk 5 - operaatio Satakieli (16).ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20190504%202232%20-%20MTV3%20-%20Elokuva_%20Johan%20Falk%205%20-%20operaatio%20Satakieli%20%2816%29.ts
+#EXTINF:-1,: 20190425 0805 - SVT1 Väst - Morgonstudion.ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20190425%200805%20-%20SVT1%20V%C3%A4st%20-%20Morgonstudion.ts
+#EXTINF:-1,: 20190423 1943 - SVT1 Väst - Lokala nyheter.ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20190423%201943%20-%20SVT1%20V%C3%A4st%20-%20Lokala%20nyheter.ts
+#EXTINF:-1,: 20190418 0816 - SVT1 Väst - Morgonstudion.ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20190418%200816%20-%20SVT1%20V%C3%A4st%20-%20Morgonstudion.ts
+#EXTINF:-1,: 20190305 0701 - SVT2 HD - Inget program.ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20190305%200701%20-%20SVT2%20HD%20-%20Inget%20program.ts
+#EXTINF:-1,: 20190305 0700 - SVT2 Norrbotten - Inget program.ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20190305%200700%20-%20SVT2%20Norrbotten%20-%20Inget%20program.ts
+#EXTINF:-1,: 20190216 0858 - Estradi 2020 - Estradi 2020.ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20190216%200858%20-%20Estradi%202020%20-%20Estradi%202020.ts
+#EXTINF:-1,: 20190213 1657 - Yle TV1 - Yle Uutiset.ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20190213%201657%20-%20Yle%20TV1%20-%20Yle%20Uutiset.ts
+#EXTINF:-1,: 20190208 2257 - Yle Teema & Fem - Yle Live_Alan Walker.ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20190208%202257%20-%20Yle%20Teema%20%26%20Fem%20-%20Yle%20Live_Alan%20Walker.ts
+#EXTINF:-1,: 20181121 2057 - Kutonen - Maistissa maailmalla.ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20181121%202057%20-%20Kutonen%20-%20Maistissa%20maailmalla.ts
+#EXTINF:-1,: 20181118 2257 - Nat Geo FI - Inside North Korea's Dynasty.ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20181118%202257%20-%20Nat%20Geo%20FI%20-%20Inside%20North%20Korea%27s%20Dynasty.ts
+#EXTINF:-1,: 20181118 2157 - Nat Geo FI - Inside North Korea's Dynasty.ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20181118%202157%20-%20Nat%20Geo%20FI%20-%20Inside%20North%20Korea%27s%20Dynasty.ts
+#EXTINF:-1,: 20181116 2102 - Yle TV1 HD - Perjantai.ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20181116%202102%20-%20Yle%20TV1%20HD%20-%20Perjantai.ts
+#EXTINF:-1,: 20181115 2057 - Discovery (F) - Alaskan Bush People.ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20181115%202057%20-%20Discovery%20%28F%29%20-%20Alaskan%20Bush%20People.ts
+#EXTINF:-1,: 20181108 2157 - Yle TV1 Häme - Ulkolinja_ Venäjän trollitehtaassa.ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20181108%202157%20-%20Yle%20TV1%20H%C3%A4me%20-%20Ulkolinja_%20Ven%C3%A4j%C3%A4n%20trollitehtaassa.ts
+#EXTINF:-1,: 20181103 0901 - Animal Planet HD - Vet Gone Wild.ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20181103%200901%20-%20Animal%20Planet%20HD%20-%20Vet%20Gone%20Wild.ts
+#EXTINF:-1,: 20181012 2157 - SF Kanalen - Uusi maa.ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20181012%202157%20-%20SF%20Kanalen%20-%20Uusi%20maa.ts
+#EXTINF:-1,: 20180725 2234 - SF Kanalen - Demokraattinen terroristi.ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20180725%202234%20-%20SF%20Kanalen%20-%20Demokraattinen%20terroristi.ts
+#EXTINF:-1,: 20180710 2239 - C More Stars HD - Beck_ Kasvoton mies.ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20180710%202239%20-%20C%20More%20Stars%20HD%20-%20Beck_%20Kasvoton%20mies.ts
+#EXTINF:-1,: 20180703 2329 - C More Stars HD - Beck_ Valkeat yöt.ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20180703%202329%20-%20C%20More%20Stars%20HD%20-%20Beck_%20Valkeat%20y%C3%B6t.ts
+#EXTINF:-1,: 20180701 2229 - C More Stars HD - Beck - houkutuslintu.ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20180701%202229%20-%20C%20More%20Stars%20HD%20-%20Beck%20-%20houkutuslintu.ts
+#EXTINF:-1,: 20180701 0032 - C More Stars HD - Beck_ Skorpioni.ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20180701%200032%20-%20C%20More%20Stars%20HD%20-%20Beck_%20Skorpioni.ts
+#EXTINF:-1,: 20180630 0047 - C More Hits HD - Beck - Poika lasipallossa.ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20180630%200047%20-%20C%20More%20Hits%20HD%20-%20Beck%20-%20Poika%20lasipallossa.ts
+#EXTINF:-1,: 20180629 0327 - C More Stars HD - Beck_ Mainostaja.ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20180629%200327%20-%20C%20More%20Stars%20HD%20-%20Beck_%20Mainostaja.ts
+#EXTINF:-1,: 20180621 2057 - SF Kanalen - Kommissarie Späck.ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20180621%202057%20-%20SF%20Kanalen%20-%20Kommissarie%20Sp%C3%A4ck.ts
+#EXTINF:-1,: 20180611 2347 - C More First HD - Suicide Squad.ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20180611%202347%20-%20C%20More%20First%20HD%20-%20Suicide%20Squad.ts
+#EXTINF:-1,: 20180609 0622 - Discovery (F) - Dogs_ The Untold Story.ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20180609%200622%20-%20Discovery%20%28F%29%20-%20Dogs_%20The%20Untold%20Story.ts
+#EXTINF:-1,: 20180607 0714 - SVT2 Väst - Ingen sändning.ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20180607%200714%20-%20SVT2%20V%C3%A4st%20-%20Ingen%20s%C3%A4ndning.ts
+#EXTINF:-1,: 20180604 2057 - Yle TV2 HD - Kummelistories.ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20180604%202057%20-%20Yle%20TV2%20HD%20-%20Kummelistories.ts
+#EXTINF:-1,: 20180531 0830 - 4Fun Gold Hits - Przebojowy poranek.ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20180531%200830%20-%204Fun%20Gold%20Hits%20-%20Przebojowy%20poranek.ts
+#EXTINF:-1,: 20180414 0557 - Ruutu+ Dokkarit - Katastrofin anatomia.ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20180414%200557%20-%20Ruutu%2B%20Dokkarit%20-%20Katastrofin%20anatomia.ts
+#EXTINF:-1,: 20180411 2357 - Ruutu+ Dokkarit - Katastrofin anatomia.ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20180411%202357%20-%20Ruutu%2B%20Dokkarit%20-%20Katastrofin%20anatomia.ts
+#EXTINF:-1,: 20180410 2357 - Ruutu+ Dokkarit - Katastrofin anatomia.ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20180410%202357%20-%20Ruutu%2B%20Dokkarit%20-%20Katastrofin%20anatomia.ts
+#EXTINF:-1,: 20180331 0132 - C More Hits HD - Beck - Kartelli.ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20180331%200132%20-%20C%20More%20Hits%20HD%20-%20Beck%20-%20Kartelli.ts
+#EXTINF:-1,: 20180329 2232 - C More Stars HD - Beck_ Invaasio.ts
+http://192.168.1.12:80/file?file=/media/hdd/movie/20180329%202232%20-%20C%20More%20Stars%20HD%20-%20Beck_%20Invaasio.ts
+#EXTINF:-1,: 01.m4v
+http://192.168.1.12:80/file?file=/media/hdd/movie/01.m4v
+#EXTINF:-1,: 02.m4v
+http://192.168.1.12:80/file?file=/media/hdd/movie/02.m4v
+#EXTINF:-1,: 03.m4v
+http://192.168.1.12:80/file?file=/media/hdd/movie/03.m4v
+#EXTINF:-1,: INDIANA_JONES_TEMPLE_DOOM.mpg
+http://192.168.1.12:80/file?file=/media/hdd/movie/INDIANA_JONES_TEMPLE_DOOM.mpg
