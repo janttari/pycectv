@@ -34,7 +34,6 @@ class VideoWindow(QtCore.QThread, QtCore.QObject): #----------------------------
         self.videoFrame.setStyleSheet("border: none;")
         self.vlcInstance = vlc.Instance(['--video-on-top'])
         self.videoPlayer = self.vlcInstance.media_player_new()
-        self.videoPlayer = self.vlcInstance.media_player_new()
         self.videoPlayer.video_set_mouse_input(False)
         self.videoPlayer.video_set_key_input(False)
         self.viimNahtyAika=time.time()
@@ -70,6 +69,21 @@ class VideoWindow(QtCore.QThread, QtCore.QObject): #----------------------------
         FormVideo.show()
         FormVideo.showMaximized()
 
+    def fwd(self): #hyppää eteenpäin
+        sij=self.videoPlayer.get_time()
+        uusisij=sij+60000
+        self.videoPlayer.set_time(uusisij)
+
+    def rev(self): #hyppää taaksepäin
+        sij=self.videoPlayer.get_time()
+        uusisij=sij-60000
+        if uusisij<0:
+            uusisij=0
+        self.videoPlayer.set_time(uusisij)
+
+    def pause(self):
+        self.videoPlayer.pause()
+
 class Ui_Form(QtCore.QThread, QtCore.QObject): #--------------------------------------------- PÄÄIKKUNA --------------------------------------------
     signal = QtCore.pyqtSignal([str])
 
@@ -92,11 +106,9 @@ class Ui_Form(QtCore.QThread, QtCore.QObject): #--------------------------------
         self.label.setObjectName("label")
         self.listWidgetKanavalista = QtWidgets.QListWidget(Form)
         self.listWidgetMovielista = QtWidgets.QListWidget(Form)
-        self.listWidgetMovielista.setStyleSheet("QListView{background-color: green; font: 22pt \"Ubuntu Mono\"; color: white;}QListView::item:selected{background-color: rgb(255,0,0); color: yellow;};");
+        self.listWidgetMovielista.setStyleSheet("QListView{background-color:rgb(41, 85, 74); font: 22pt \"Ubuntu Mono\"; color: white;}QListView::item:selected{background-color: rgb(255,0,0); color: yellow;};");
         self.listWidgetMovielista.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.listWidgetMovielista.hide()
-        #self.listWidgetKanavalista.setGeometry(QtCore.QRect(70, 70, 256, 192))
-        #self.listWidgetMovielista.setGeometry(QtCore.QRect(70, 70, 256, 192))
         self.listWidgetKanavalista.setObjectName("listWidget")
         self.listWidgetKanavalista.setViewMode(QtWidgets.QListWidget.IconMode);
         self.retranslateUi(Form)
@@ -136,7 +148,23 @@ class Ui_Form(QtCore.QThread, QtCore.QObject): #--------------------------------
         self.sendKey(arvo)
 
     def sendKey(self, key): #(**3**)
-        if key == "OIKEA":
+
+        if key =="FWD":
+            if self.leffaToistuu:
+                ui_video.fwd()
+            return
+
+        if key =="REV":
+            if self.leffaToistuu:
+                ui_video.rev()
+            return
+
+        if key =="PAUSE":
+            if self.leffaToistuu:
+                ui_video.pause()
+            return
+
+        elif key == "OIKEA":
             nappain=QtCore.Qt.Key_Right
         elif key == "VASEN":
             nappain=QtCore.Qt.Key_Left
@@ -147,10 +175,8 @@ class Ui_Form(QtCore.QThread, QtCore.QObject): #--------------------------------
         elif key == "OK":
             nappain=QtCore.Qt.Key_Enter
         elif key == "STOP":
-            print("stop",self.nytsoi)
             if self.nytsoi:
                 if self.nytsoi[2]=="e2movie":
-                    print("hide")
                     if self.leffaToistuu:
                         ui_video.seis()
                         self.leffaToistuu=False
@@ -188,6 +214,8 @@ class Ui_Form(QtCore.QThread, QtCore.QObject): #--------------------------------
         self.label.setText(_translate("Form", "TextLabel"))
 
     def klikattuKanava(self):
+        if self.nytsoi: #on jo toistossa jotain
+            return
         kohde=self.listWidgetKanavalista.currentRow()
         self.nytsoi=self.kanavalista[kohde]
         if self.kanavalista[kohde][2] == "play": #sisäisellä VLC:llä avattava
@@ -212,14 +240,14 @@ class Ui_Form(QtCore.QThread, QtCore.QObject): #--------------------------------
             FormVideo.show()
 
     def klikattuMovie(self):
+        if self.leffaToistuu: #on jo toistossa
+            return
         self.leffaToistuu=True
         kohde=self.listWidgetMovielista.currentRow()
-        print(kohde, self.leffat[kohde], self.urlit[kohde])
         ui_video.toista(self.urlit[kohde])
         Form.hide()
         FormVideo.show()
 
-        
     def lueKanavat(self):
         with open(FILEPATH+"/kanavat.conf") as fp:
             for line in fp:
@@ -233,11 +261,17 @@ class Ui_Form(QtCore.QThread, QtCore.QObject): #--------------------------------
                         self.kanavalista.append([nimi, kuva, tyyppi, url])
                         self.listWidgetKanavalista.addItem(QtWidgets.QListWidgetItem(QtGui.QIcon(FILEPATH+"/data/"+kuva),nimi))
 
-    def lataaMovielista(self):
+    def lataaMovielista(self): #hakee enigma2 movie listan
+        eurl=self.nytsoi[3][0]
+        eusr=self.nytsoi[3][1]
+        epsw=self.nytsoi[3][2]
+        a,l=eurl.split("://")
+        surl=a+"://"+eusr+":"+epsw+"@"+l
+        print(surl)
         self.leffat=[]
         self.urlit=[]
-        urlsis="http://root:2001jape@192.168.1.12/web/movielist.m3u"
-        r = requests.get(urlsis)
+        #urlsis="http://root:2001jape@192.168.1.12/web/movielist.m3u"
+        r = requests.get(surl)
         sisalto=r.text.split("\n")
         for i in range(0,len(sisalto)):
             srivi=sisalto[i].rstrip()
@@ -247,15 +281,13 @@ class Ui_Form(QtCore.QThread, QtCore.QObject): #--------------------------------
                     ohjelma=" - ".join(srivi.split(" - ")[2:])
                     url=sisalto[i+1].rstrip() #HUOM LISÄÄ KÄYTTÄJÄTUNNUS JA SALASANA!
                     a,l=url.split("://")
-                    print(a,l)
-                    url=a+"://root:2001jape@"+l
+                    url=a+"://"+eusr+":"+epsw+"@"+l
                     self.leffat.append(ohjelma)
                     self.urlit.append(url)
                     self.listWidgetMovielista.addItem(ohjelma)
                 except:
                     pass
-                    
-   
+
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
@@ -263,9 +295,7 @@ if __name__ == "__main__":
     ui = Ui_Form()
     ui.setupUi(Form)
     Form.show()
-
     FormVideo = QtWidgets.QWidget()
     ui_video = VideoWindow()
     ui_video.setupUi(FormVideo)
-    
     sys.exit(app.exec_())
