@@ -17,6 +17,7 @@ class VideoWindow(QtCore.QThread, QtCore.QObject): #----------------------------
         self.start()
 
     def setupUi(self, VideoWindow):
+        self.pikakelaa=False
         self.valvoTimer = QtCore.QTimer()
         FormVideo.setStyleSheet("background-color:rgb(0, 0, 0); border: none;")
         self.sizeHint = lambda: QtCore.QSize(800, 600)
@@ -69,20 +70,21 @@ class VideoWindow(QtCore.QThread, QtCore.QObject): #----------------------------
         FormVideo.show()
         FormVideo.showMaximized()
 
-    def fwd(self): #hyppää eteenpäin
-        sij=self.videoPlayer.get_time()
-        uusisij=sij+60000
-        self.videoPlayer.set_time(uusisij)
+    def fwd(self): #pikakelaa
+        if not self.pikakelaa:
+            self.pikakelaa=True
+            self.videoPlayer.set_rate(8.0)
+        else:
+            self.pikakelaa=False
+            self.videoPlayer.set_rate(1.0)
 
     def rev(self): #hyppää taaksepäin
-        sij=self.videoPlayer.get_time()
-        uusisij=sij-60000
-        if uusisij<0:
-            uusisij=0
-        self.videoPlayer.set_time(uusisij)
+        sijainti=self.videoPlayer.get_position()
+        self.videoPlayer.set_position(sijainti-0.005)
 
     def pause(self):
         self.videoPlayer.pause()
+
 
 class Ui_Form(QtCore.QThread, QtCore.QObject): #--------------------------------------------- PÄÄIKKUNA --------------------------------------------
     signal = QtCore.pyqtSignal([str])
@@ -203,7 +205,7 @@ class Ui_Form(QtCore.QThread, QtCore.QObject): #--------------------------------
             QtCore.QCoreApplication.sendEvent(self.listWidgetKanavalista, event)
         else:
             QtCore.QCoreApplication.sendEvent(self.listWidgetMovielista, event)
-            
+
     def recurring_timer(self): #qt ajastin joka suoritetaan joka nnn millisekunti
         self.laskuri+=1
         self.label.setText(datetime.now().strftime('%H:%M:%S'))
@@ -270,7 +272,6 @@ class Ui_Form(QtCore.QThread, QtCore.QObject): #--------------------------------
         print(surl)
         self.leffat=[]
         self.urlit=[]
-        #urlsis="http://root:2001jape@192.168.1.12/web/movielist.m3u"
         r = requests.get(surl)
         sisalto=r.text.split("\n")
         for i in range(0,len(sisalto)):
@@ -279,7 +280,7 @@ class Ui_Form(QtCore.QThread, QtCore.QObject): #--------------------------------
                 try:
                     kanava=srivi.split(" - ")[1]
                     ohjelma=" - ".join(srivi.split(" - ")[2:])
-                    url=sisalto[i+1].rstrip() #HUOM LISÄÄ KÄYTTÄJÄTUNNUS JA SALASANA!
+                    url=sisalto[i+1].rstrip()
                     a,l=url.split("://")
                     url=a+"://"+eusr+":"+epsw+"@"+l
                     self.leffat.append(ohjelma)
@@ -287,6 +288,8 @@ class Ui_Form(QtCore.QThread, QtCore.QObject): #--------------------------------
                     self.listWidgetMovielista.addItem(ohjelma)
                 except:
                     pass
+        self.listWidgetMovielista.setFocus()
+        self.listWidgetMovielista.setCurrentRow(0)
 
 if __name__ == "__main__":
     import sys
