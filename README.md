@@ -72,6 +72,8 @@ Automaattinen käynnistys pois päältä:
  Kanavan voi kommentoida pois käytöstä rivin alkuun lisättävällä #-merkillä    
  
 -------
+
+[kaukosäätimen painikkeet](doc/kauko.png)
   
 TODO:  
 - pikakelaus kuntoon
