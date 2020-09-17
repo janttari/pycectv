@@ -74,6 +74,8 @@ Automaattinen käynnistys pois päältä:
 -------
   
 TODO:  
+- pikakelaus kuntoon
+
   
 
   
