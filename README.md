@@ -75,7 +75,7 @@ Automaattinen käynnistys pois päältä:
   
 TODO:  
 - pikakelaus kuntoon
-
+- virhetilanteiden hallinta
   
 
   
