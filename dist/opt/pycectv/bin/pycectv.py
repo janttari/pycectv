@@ -2,10 +2,11 @@
 #
 # Yksinkertainen IPTV toistin Raspberrylle. Ohjataan TV:n kaukosäätimellä (HDMI-CEC)
 #
+TRANSKOODAA=False
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from datetime import datetime
-import vlc, time, cec, os, subprocess, requests
+import vlc, time, cec, os, subprocess, requests, operator
 
 #Kaukosäätimen CEC-komennot:
 NAPIT = {1: "YLÖS", 0: "OK", 2: "ALAS", 3: "VASEN", 4: "OIKEA", 69: "STOP", 70: "PAUSE", 72: "REV", 73: "FWD", 68: "PLAY"}
@@ -80,6 +81,52 @@ class VideoWindow(QtCore.QThread, QtCore.QObject): #----------------------------
     def pause(self):
         self.videoPlayer.pause()
 
+    def tekstitysPaalle(self, htyyppi="dvb", hkieli="fin", kvam=True): #suosi dvb, suomi ja kuulovammaisten tekstitys
+        tekstit=self.videoPlayer.video_get_spu_description()
+        tekstiLista=[]
+        for t in tekstit[1:]:
+            kk="-"
+            yy="-"
+            pisteet=0
+            dd=t[0]
+            kl=t[1].decode().lower()
+            tyyppi=kl.split(" - ")[0]
+            kieli = kl[kl.find("[")+1:kl.rfind("]")][:3]
+            if "teksti-tv-tekstitys" in tyyppi or "teletext subtitles" in tyyppi or "text-tv-undertexter" in tyyppi:
+                tt="teletext"
+                if tt==htyyppi:
+                    pisteet+=10
+                else:
+                    pisteet+=5
+            elif "dvb-tekstitys" in tyyppi or "dvb subtitles" in tyyppi or "dvb-undertexter" in tyyppi:
+                tt="dvb"
+                if tt==htyyppi:
+                    pisteet+=10
+                else:
+                    pisteet+=5                
+            else:
+                tt="muu"
+            if kieli=="suo" or kieli == "fin":
+                kk="fin"
+                if kk==hkieli:
+                    pisteet+=10
+                    if "kuulovammaisille" in kl or "hearing" in kl or "rselskada" in kl:
+                        if kvam:
+                            pisteet+=3
+                        else:
+                            pisteet-=3
+                        
+            elif kieli=="ruo" or kieli == "swe" or kieli == "sve":
+                kk="swe"
+                if kk==hkieli:
+                    pisteet+=10
+                    if kvam:
+                        pisteet+=5                
+            if tt=="teletext" or tt=="dvb":
+                tekstiLista.append((pisteet, dd, tt, kk))
+        tekstiLista.sort(key = operator.itemgetter(0), reverse = True)
+        if len(tekstiLista)>0:
+            self.videoPlayer.video_set_spu(tekstiLista[0][1])
 
 class Ui_Form(QtCore.QThread, QtCore.QObject): #--------------------------------------------- PÄÄIKKUNA --------------------------------------------
     signal = QtCore.pyqtSignal([str])
@@ -115,7 +162,7 @@ class Ui_Form(QtCore.QThread, QtCore.QObject): #--------------------------------
         self.label.move(20,0)
         monitor = QtWidgets.QDesktopWidget().screenGeometry(0) # Jos useampi monitori käytössä
         self.listWidgetKanavalista.setGeometry(QtCore.QRect(100, 30, monitor.width()-100, monitor.height()-10))
-        self.listWidgetMovielista.setGeometry(QtCore.QRect(100, 30, monitor.width()-100, monitor.height()-10))
+        self.listWidgetMovielista.setGeometry(QtCore.QRect(100, 30, monitor.width()-100, monitor.height()-30))
         Form.move(monitor.left(), monitor.top())
         Form.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint|QtCore.Qt.CustomizeWindowHint|QtCore.Qt.FramelessWindowHint)
         Form.showMaximized()
@@ -146,6 +193,10 @@ class Ui_Form(QtCore.QThread, QtCore.QObject): #--------------------------------
 
     def sendKey(self, key): #(**3**)
 
+        if key =="PLAY": #tässä nyt tekstitys tällä hetkellä
+            ui_video.tekstitysPaalle()
+            return
+        
         if key =="FWD":
             if self.leffaToistuu:
                 ui_video.fwd()
@@ -277,6 +328,8 @@ class Ui_Form(QtCore.QThread, QtCore.QObject): #--------------------------------
                     url=sisalto[i+1].rstrip()
                     a,l=url.split("://")
                     url=a+"://"+eusr+":"+epsw+"@"+l
+                    if TRANSKOODAA:
+                        url=url.replace(":80/", ":8002/")
                     self.leffat.append(ohjelma)
                     self.urlit.append(url)
                     self.listWidgetMovielista.addItem(ohjelma)
