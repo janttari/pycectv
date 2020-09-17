@@ -2,24 +2,18 @@
   
 ![](https://raw.githubusercontent.com/janttari/pycectv/main/doc/paaikkuna.png)
   
+![](https://raw.githubusercontent.com/janttari/pycectv/main/doc/elokuvalista.png)
+  
 
 pycectv on yksinkertainen television kaukosäätimellä (HDMI-CEC) ohjattava IPTV-toistin Raspberry Pi:lle.
   
-### Jos imagena on Raspberry Pi OS lite ilman työpöytää, asenna ensin työpöytä:
+### Imageksi suositellaan Raspberry Pi OS (with desktop-versio)
 
-    sudo apt update
-    sudo apt install -y lxqt lightdm
-    
-    #Työpöytä automaattisesti käynnistyväksi:
-    sudo raspi-config # --> Boot Options --> Desktop / CLI --> Desktop Autologin Desktop GUI, automatically logged in as 'pi' user
-    
-    #Jos "A stop job is running for..." rebootissa:
-    sudo sed -i 's/^#DefaultTimeoutStopSec=.*/DefaultTimeoutStopSec=10s/' /etc/systemd/system.conf
-    
-    sudo reboot 
-    
     #Paneelin piilotus:
-    sed -i 's/^hidable=.*/hidable=true/' ~/.config/lxqt/panel.conf
+    ~/.config/lxpanel/LXDE-pi/panels/panel
+    autohide=1
+    heightwhenhidden=0
+    
     
   
 ### Asenna pycectv ja riippuvuudet:  
@@ -69,9 +63,10 @@ Automaattinen käynnistys pois päältä:
  tyyppi:  
  play   ;sisäisellä VLC-soittimella soitettava striimi  
  geturl ;sisäisellä VLC-soittimella soitettava striimi. Striimin osoite haetaan ulkoiselta ohjelmalta  
- exec   ;suoritettava skripti  
+ e2movie;enigma2-boksin elokuvalista
+ exec   ;suoritettava skripti (parametreinä url, käyttäjänimi ja salasana ks esimerkki [konffitiedostosta](dist/opt/pycectv/kanavat.conf)  
  quit   ;lopettaa ohjelman suorituksen  
-  
+   
  parametrit = soittimelle välitettävä url ja muut parametrit. Tarvittaessa erottele |-merkillä.  
   
  Kanavan voi kommentoida pois käytöstä rivin alkuun lisättävällä #-merkillä    

@@ -17,7 +17,6 @@ class VideoWindow(QtCore.QThread, QtCore.QObject): #----------------------------
         self.start()
 
     def setupUi(self, VideoWindow):
-        self.pikakelaa=False
         self.valvoTimer = QtCore.QTimer()
         FormVideo.setStyleSheet("background-color:rgb(0, 0, 0); border: none;")
         self.sizeHint = lambda: QtCore.QSize(800, 600)
@@ -71,16 +70,12 @@ class VideoWindow(QtCore.QThread, QtCore.QObject): #----------------------------
         FormVideo.showMaximized()
 
     def fwd(self): #pikakelaa
-        if not self.pikakelaa:
-            self.pikakelaa=True
-            self.videoPlayer.set_rate(8.0)
-        else:
-            self.pikakelaa=False
-            self.videoPlayer.set_rate(1.0)
+        sijainti=self.videoPlayer.get_position()
+        self.videoPlayer.set_position(sijainti+0.01)
 
     def rev(self): #hyppää taaksepäin
         sijainti=self.videoPlayer.get_position()
-        self.videoPlayer.set_position(sijainti-0.005)
+        self.videoPlayer.set_position(sijainti-0.01)
 
     def pause(self):
         self.videoPlayer.pause()
@@ -108,7 +103,7 @@ class Ui_Form(QtCore.QThread, QtCore.QObject): #--------------------------------
         self.label.setObjectName("label")
         self.listWidgetKanavalista = QtWidgets.QListWidget(Form)
         self.listWidgetMovielista = QtWidgets.QListWidget(Form)
-        self.listWidgetMovielista.setStyleSheet("QListView{background-color:rgb(41, 85, 74); font: 22pt \"Ubuntu Mono\"; color: white;}QListView::item:selected{background-color: rgb(255,0,0); color: yellow;};");
+        self.listWidgetMovielista.setStyleSheet("QListView{background-color:rgb(41, 85, 74); font: 22pt \"Ubuntu Mono\"; color: white;}QListView::item:selected{background-color: rgb(75,153,134); color: yellow;};");
         self.listWidgetMovielista.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.listWidgetMovielista.hide()
         self.listWidgetKanavalista.setObjectName("listWidget")
@@ -269,7 +264,6 @@ class Ui_Form(QtCore.QThread, QtCore.QObject): #--------------------------------
         epsw=self.nytsoi[3][2]
         a,l=eurl.split("://")
         surl=a+"://"+eusr+":"+epsw+"@"+l
-        print(surl)
         self.leffat=[]
         self.urlit=[]
         r = requests.get(surl)
