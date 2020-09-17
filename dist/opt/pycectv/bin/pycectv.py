@@ -103,7 +103,7 @@ class VideoWindow(QtCore.QThread, QtCore.QObject): #----------------------------
                 if tt==htyyppi:
                     pisteet+=10
                 else:
-                    pisteet+=5                
+                    pisteet+=5
             else:
                 tt="muu"
             if kieli=="suo" or kieli == "fin":
@@ -115,13 +115,12 @@ class VideoWindow(QtCore.QThread, QtCore.QObject): #----------------------------
                             pisteet+=3
                         else:
                             pisteet-=3
-                        
             elif kieli=="ruo" or kieli == "swe" or kieli == "sve":
                 kk="swe"
                 if kk==hkieli:
                     pisteet+=10
                     if kvam:
-                        pisteet+=5                
+                        pisteet+=5
             if tt=="teletext" or tt=="dvb":
                 tekstiLista.append((pisteet, dd, tt, kk))
         tekstiLista.sort(key = operator.itemgetter(0), reverse = True)
