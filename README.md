@@ -7,7 +7,7 @@
 
 pycectv on yksinkertainen television kaukosäätimellä (HDMI-CEC) ohjattava IPTV-toistin Raspberry Pi:lle.
   
-### Imageksi suositellaan Raspberry Pi OS (with desktop-versio)
+### Imageksi suositellaan Raspberry Pi OS with desktop
 
     #Paneelin piilotus:
     ~/.config/lxpanel/LXDE-pi/panels/panel
