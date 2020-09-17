@@ -4,4 +4,7 @@ Environment="DISPLAY=:0"
 Environment="XAUTHORITY=/home/pi/.Xauthority"
 sleep 60 && xscreensaver-command -exit &
 unclutter -idle 1 &
+xset s off
+xset -dpms
+xset s noblank
 /opt/pycectv/bin/pycectv.py
