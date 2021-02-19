@@ -1,4 +1,4 @@
-# pycectv
+# pycectv (korvautuu tällä: https://github.com/janttari/pycectv3 )
   
 ![](https://raw.githubusercontent.com/janttari/pycectv/main/doc/paaikkuna.png)
   
